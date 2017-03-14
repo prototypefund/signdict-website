@@ -16,6 +16,9 @@ defmodule SignDict.Video do
     belongs_to :entry, SignDict.Entry
     belongs_to :user, SignDict.User
 
+    # Associations:
+    has_many :votes, SignDict.Vote
+
     timestamps()
   end
 

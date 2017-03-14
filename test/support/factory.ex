@@ -36,4 +36,21 @@ defmodule SignDict.Factory do
       default_locale: "DE"
     }
   end
+
+  def video_factory do
+    %SignDict.Video{
+      copyright: "some content",
+      license: "some content",
+      original_href: "some content",
+      state: "uploaded",
+      type: "some content"
+    }
+  end
+
+  def vote_factory do
+    %SignDict.Vote{
+      user: build(:user),
+      video: build(:video)
+    }
+  end
 end

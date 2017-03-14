@@ -26,7 +26,9 @@ defmodule SignDict.User do
 
     field :avatar, SignDict.Avatar.Type
 
+    # Associations:
     has_many :videos, SignDict.Video
+    has_many :votes, SignDict.Vote
 
     timestamps()
   end
