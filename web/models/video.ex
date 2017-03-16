@@ -52,12 +52,7 @@ defmodule SignDict.Video do
 
   def changeset(struct, params \\ %{}) do
     struct
-<<<<<<< HEAD
-    |> cast(params, [:state, :copyright, :license, :original_href,
-                     :user_id, :entry_id])
-=======
     |> cast(params, [:state, :copyright, :license, :original_href, :user_id, :entry_id])
->>>>>>> added data models for entry and language
     |> validate_required([:state, :copyright, :license, :original_href])
     |> foreign_key_constraint(:entry_id)
     |> foreign_key_constraint(:user_id)
