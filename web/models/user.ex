@@ -29,6 +29,7 @@ defmodule SignDict.User do
     # Associations:
     has_many :videos, SignDict.Video
     has_many :votes, SignDict.Vote
+    has_many :videos, SignDict.Video
 
     timestamps()
   end
@@ -43,6 +44,19 @@ defmodule SignDict.User do
   end
   def avatar_url(user) do
     gravatar_url(user.email, s: 256)
+  end
+
+  def admin?(struct) do
+    struct.role == "admin"
+  end
+
+  def admin_changeset(user, params \\ %{}) do
+    changeset = user
+                |> cast(params, [:email, :name, :biography, :password,
+                                 :password_confirmation, :role])
+                |> validate_required([:email, :name])
+                |> validate_format(:email, ~r/@/)
+                |> unique_constraint(:email)
   end
 
   def admin?(struct) do
