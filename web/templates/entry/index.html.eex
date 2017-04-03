@@ -1,0 +1,18 @@
+<div>
+  <%= form_for @conn, entry_path(@conn, :index), [method: :get, as: :search], fn f -> %>
+    <%= text_input f, :word  %>
+    <%= text_input f, :language %>
+    <%= submit "Search" %>
+  <% end %>
+
+  <%= if assigns[:entries] do %>
+    <ul>
+      <%= for entry <- @entries do %>
+        <li>
+          <%= entry.text %>
+          <%= entry.description %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

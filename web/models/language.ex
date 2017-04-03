@@ -12,6 +12,9 @@ defmodule SignDict.Language do
     timestamps()
   end
 
+  @languages_for_pg_text_search ~w(danish dutch english finnish french german hungarian
+    italian norwegian portuguese romanian russian spanish swedish turkish)
+
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:iso6393, :long_name, :short_name, :default_locale])
