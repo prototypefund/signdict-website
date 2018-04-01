@@ -16,9 +16,7 @@
 
 <link href="https://cdn.jwplayer.com" rel="preconnect" crossorigin>
 
-<%= if is_nil(assigns[:appjs]) || assigns[:appjs] do %>
-  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-<% end %>
+<script src="<%= static_path(@conn, "/js/autocomplete.js") %>"></script>
 
 <%= if Application.get_env(:sign_dict, :environment) != :prod do %>
   <script src="https://cdn.accesslint.com/accesslint-1.1.2.js"></script>
